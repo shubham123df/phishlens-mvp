@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reported Phishing Links</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="home.html" class="back-btn">🏠 Back to Home</a>
+    <h1>📜 Community Reported Links</h1>
+    <ul id="reportList">Loading...</ul>
+
+    <script>
+        fetch("http://127.0.0.1:5000/reports")
+        .then(res => res.json())
+        .then(data => {
+            let list = document.getElementById("reportList");
+            list.innerHTML = "";
+            if (data.length === 0) {
+                list.innerHTML = "<li>No reports yet.</li>";
+            } else {
+                data.forEach(url => {
+                    let li = document.createElement("li");
+                    li.textContent = url;
+                    list.appendChild(li);
+                });
+            }
+        })
+        .catch(err => {
+            document.getElementById("reportList").innerHTML = "<li>Error loading reports</li>";
+        });
+    </script>
+</body>
+</html>

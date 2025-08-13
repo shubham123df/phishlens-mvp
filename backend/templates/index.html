@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishLens - Phishing Detection Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#detector">Detector</a></li>
+            <li><a href="#reports">Reports</a></li>
+            <li><a href="#performance">Performance</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <header id="home">
+        <h1>PhishLens</h1>
+        <p>Protecting users from phishing attacks with AI-powered detection and real-time reporting.</p>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About</h2>
+        <div class="about-card">
+            <p>
+                <strong>Phishing attacks</strong> trick people into revealing sensitive information like passwords and bank details.
+                Our solution detects suspicious websites in real-time using Machine Learning and visual similarity checks.
+            </p>
+            <p>
+                <strong>Problem:</strong> Phishing is one of the most dangerous cyber threats today.
+            </p>
+            <p>
+                <strong>Solution:</strong> A browser tool that scans URLs, detects risks, warns users, and allows quick reporting to protect others.
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <h2>Our Team</h2>
+        <div class="team-cards">
+            <div><h3>Shubham Kumar Gupta</h3><p>Frontend & UI</p></div>
+            <div><h3>Harsimrat</h3><p>ML Model & Integration</p></div>
+            <div><h3>Mehak</h3><p>Visual Detection & Privacy</p></div>
+            <div><h3>Ridhima</h3><p>Model Training</p></div>
+            <div><h3>Yashika</h3><p>Backend & API</p></div>
+        </div>
+    </section>
+
+    <!-- Detector Section -->
+    <section id="detector">
+        <h2>Phishing URL Detector</h2>
+        <div class="detector">
+            <input type="text" id="urlInput" placeholder="Enter URL to check">
+            <br>
+            <button id="checkBtn">Check URL</button>
+            <div id="loading" class="hidden">⏳ Checking...</div>
+
+            <div id="resultCard" class="hidden">
+                <h3 id="status"></h3>
+                <p id="score"></p>
+                <p id="reason"></p>
+                <button id="reportBtn" class="hidden">🚩 Report Link</button>
+            </div>
+
+            <h4>Recent Checks</h4>
+            <ul id="historyList"></ul>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports">
+        <h2>Reported Links</h2>
+        <div class="reports">
+            <ul id="reportList"></ul>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance">
+        <h2>Performance</h2>
+        <div class="performance-stats">
+            <p>⚡ Detection Speed: <strong>~0.2s</strong></p>
+            <p>🛡️ Accuracy: <strong>92%</strong></p>
+            <p>🌍 Reports Collected: <strong id="reportCount">0</strong></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 PhishLens Hackathon Project | Built with ❤️ by Our Team</p>
+    </footer>
+
+    <!-- ✅ Load JavaScript from Flask static folder -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
